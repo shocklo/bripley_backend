@@ -112,7 +112,7 @@ module.exports = {
                 }
                 pool.query( // genero registro historico
                     "insert into account_movements(type_movement, from_user, to_user, ammount) values (?,?,?,?)",
-                    ["Deposito", data.my_id, data.my_id, data.ammount],
+                    ["Retiro", data.my_id, data.my_id, data.ammount],
                     (error, results, fields) => {
                         if (error) {
                             callBack(error);

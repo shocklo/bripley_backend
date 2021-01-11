@@ -123,7 +123,7 @@ module.exports = {
 
     getUserByUsername: (data, callBack) => {
         pool.query(
-            'select username from users where username = ? and validated = 1',
+            'select id from users where username = ? and validated = 1',
             [data.username],
             (error, results, fields) => {
                 if (error) {
