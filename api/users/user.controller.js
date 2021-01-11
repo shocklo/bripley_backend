@@ -65,18 +65,18 @@ module.exports = {
                                         message: "Database connection errror"
                                     });
                                 }
-                                var urlActivacion = "https://cristobalalegria.cl/api/validate?code="+results+"&id_user"+userId;
+                                var urlActivacion = "https://cristobalalegria.cl/api/validate?code="+results+"&id_user"+userId.insertId;
                                 var mailOptions = {
                                     from: process.env.DB_HOST,
                                     to: body.email,
                                     subject: 'DESAFÍO TECNICO BANCO RIPLEY - Mini banco CAF',
                                     //TODO:: Formatear correo electronico y añadir URL para activación directa.
                                     text: 
-                                    'Hola!, gracias por registrarte en el sistema<br><br>'+
+                                    '<html><head></head><body>Hola!, gracias por registrarte en el sistema<br><br>'+
                                     'Para acceder debes validar la cuenta, para ello puedes hacer <a href="'+urlActivacion+'">Click acá.</a><br><br>'+
                                     'Si por algún motivo no puedes acceder al vinculo accede a la siguiente url:<br>'+
                                     urlActivacion+
-                                    '<br><br><br> Atentamente: Cristóbal Alegría Fuentes.'
+                                    '<br><br><br> Atentamente: Cristóbal Alegría Fuentes.</body></html>'
                                 };
 
                                 transporter.sendMail(mailOptions, function (error, info) {
