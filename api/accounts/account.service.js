@@ -3,7 +3,9 @@ const pool = require("../../config/db");
 module.exports = {
 
     getMyTransferHistory: (data, callBack) => {
-        pool.query('select * from account_movements where from_user = ? or to_user = ?',
+        pool.query('select am.id, am.type_movement, CONCAT(uf.names, ' ', uf.last_names) from_user  ,CONCAT(uf.names, ' ', uf.last_names) to_user, am.ammount, am.datetime  from account_movements am '+ 
+        'left join users uf on am.from_user = uf.id '+
+        'left join users ut on am.to_user = ut.id where am.from_user = ? or am.to_user = ?',
             [data, data],
             (error, results, fields) => {
                 if (error) {
