@@ -65,7 +65,7 @@ module.exports = {
                                         message: "Database connection errror"
                                     });
                                 }
-                                var urlActivacion = "https://cristobalalegria.cl/api/users/validate?code="+results+"&id_user"+userId.insertId;
+                                var urlActivacion = "https://cristobalalegria.cl/api/users/validate?code="+results+"&id_user="+userId.insertId;
                                 var mailOptions = {
                                     from: process.env.DB_HOST,
                                     to: body.email,
