@@ -8,13 +8,12 @@ module.exports = {
 
 
         pool.query(
-            'insert into users(username, password, names, last_names, gender, email) values (?,?,?,?,?,?)',
+            'insert into users(username, password, names, last_names, email) values (?,?,?,?,?)',
             [
                 data.username,
                 data.password,
                 data.names,
-                data.last_names,
-                data.gender,
+                data.last_names,                
                 data.email
             ],
             (error, results, fields) => {
