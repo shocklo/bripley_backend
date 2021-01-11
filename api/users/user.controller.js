@@ -71,12 +71,13 @@ module.exports = {
                                     to: body.email,
                                     subject: 'DESAFÍO TECNICO BANCO RIPLEY - Mini banco CAF',
                                     //TODO:: Formatear correo electronico y añadir URL para activación directa.
-                                    text: 
+                                    html: 
                                     '<html><head></head><body>Hola!, gracias por registrarte en el sistema<br><br>'+
                                     'Para acceder debes validar la cuenta, para ello puedes hacer <a href="'+urlActivacion+'">Click acá.</a><br><br>'+
                                     'Si por algún motivo no puedes acceder al vinculo accede a la siguiente url:<br>'+
                                     urlActivacion+
-                                    '<br><br><br> Atentamente: Cristóbal Alegría Fuentes.</body></html>'
+                                    '<br><br><br> Atentamente: Cristóbal Alegría Fuentes.</body></html>',
+                                    text:'Si no logras ver el correo con HTML favor accede a la siguiente ruta: '+urlActivacion
                                 };
 
                                 transporter.sendMail(mailOptions, function (error, info) {
