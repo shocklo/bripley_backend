@@ -62,9 +62,15 @@ module.exports = {
                                 callBack(error);
                             } else {
                                 pool.query( // genero registro historico
-                                    "insert into account_movements(type_movement, from_user, to_user, ammount, ammount_before, ammount_after) values"+
-                                    "(?,?,?,?, select ammount + ? from account where id_user = ?, select ammount + ? from account where id_user = ?)",
-                                    ["Transferencia", data.my_id, data.id_user_to_transfer, data.ammount, data.ammount, data.my_id, data.my_id],
+                                    "insert into account_movements(type_movement, from_user, to_user, ammount, ammount_before_from, ammount_after_from, ammount_before_to, ammount_after_to) "+
+                                    "select 'Transferencia', ?, ?, ?, SUM(ammount + ? ), ammount, (select SUM(ammount - ?) from account where id_user = ?), (select ammount from account where id_user = ?) "+
+                                    " from account where id_user = 105; "
+                                    [data.my_id, data.id_user_to_transfer, data.ammount, data.ammount, data.ammount, data.id_user_to_transfer, data.id_user_to_transfer, data.my_id],
+
+
+
+                                    //"insert into account_movements(type_movement, from_user, to_user, ammount) values (?,?,?,?,?,?)",
+                                    //["Transferencia", data.my_id, data.id_user_to_transfer, data.ammount],
                                     (error, results, fields) => {
                                         if (error) {
                                             callBack(error);
