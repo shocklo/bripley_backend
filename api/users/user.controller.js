@@ -65,7 +65,7 @@ module.exports = {
                                         message: "Database connection errror"
                                     });
                                 }
-                                var urlActivacion = "https://cristobalalegria.cl/api/users/validate?code="+results+"&id_user="+userId.insertId;
+                                var urlActivacion = "https://cristobalalegria.cl/#/auth/validate?code="+results+"&id_user="+userId.insertId;
                                 var mailOptions = {
                                     from: process.env.DB_HOST,
                                     to: body.email,
@@ -83,11 +83,6 @@ module.exports = {
                                     '</div><div><table style="width:100%; height:20px; border-collapse: collapse;">'+
                                     '<tr><td style="background-color:#e22d36; width:45%;"></td><td style="background-color:#f2ad4b; width:20%;"></td>'+
                                     '<td style="background-color:#894590; width:35%;"></td></tr></table></div></div></body></html>',
-                                    /*'<html><head></head><body>Hola!, gracias por registrarte en el sistema<br><br>'+
-                                    'Para acceder debes validar la cuenta, para ello puedes hacer <a href="'+urlActivacion+'">Click acá.</a><br><br>'+
-                                    'Si por algún motivo no puedes acceder al vinculo accede a la siguiente url:<br>'+
-                                    urlActivacion+
-                                    '<br><br><br> Atentamente: Cristóbal Alegría Fuentes.</body></html>',*/
                                     text:'Si no logras ver el correo con HTML favor accede a la siguiente ruta: '+urlActivacion
                                 };
 
