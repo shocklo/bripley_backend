@@ -72,11 +72,22 @@ module.exports = {
                                     subject: 'DESAFÍO TECNICO BANCO RIPLEY - Mini banco CAF',
                                     //TODO:: Formatear correo electronico y añadir URL para activación directa.
                                     html: 
-                                    '<html><head></head><body>Hola!, gracias por registrarte en el sistema<br><br>'+
+                                    '<html><head></head><body><div style="max-width:500px; margin-left:auto; margin-right:auto;">'+
+                                    '<div style="background-color:#894590; height:30px;"></div>'+
+                                    '<div style="background-color:#f8f8f8; padding-top:50px; padding-bottom:50px; padding-left:10px; padding-right;10px;">'+
+                                    '<h1>Registro Exitoso</h1>'+
+                                    '<strong>Hola!</strong>, gracias por registrarte en el sistema<br><br>'+
+                                    'Para acceder debes validar la cuenta, para ello puedes hacer <a href="'+urlActivacion+'">Click acá.</a><br><br>'+
+                                    'Si por algún motivo no puedes acceder al vinculo accede a la siguiente url:<br>'+urlActivacion+'							'+
+                                    '<br><br><br> Atentamente: Cristóbal Alegría Fuentes.'+
+                                    '</div><div><table style="width:100%; height:20px; border-collapse: collapse;">'+
+                                    '<tr><td style="background-color:#e22d36; width:45%;"></td><td style="background-color:#f2ad4b; width:20%;"></td>'+
+                                    '<td style="background-color:#894590; width:35%;"></td></tr></table></div></div></body></html>',
+                                    /*'<html><head></head><body>Hola!, gracias por registrarte en el sistema<br><br>'+
                                     'Para acceder debes validar la cuenta, para ello puedes hacer <a href="'+urlActivacion+'">Click acá.</a><br><br>'+
                                     'Si por algún motivo no puedes acceder al vinculo accede a la siguiente url:<br>'+
                                     urlActivacion+
-                                    '<br><br><br> Atentamente: Cristóbal Alegría Fuentes.</body></html>',
+                                    '<br><br><br> Atentamente: Cristóbal Alegría Fuentes.</body></html>',*/
                                     text:'Si no logras ver el correo con HTML favor accede a la siguiente ruta: '+urlActivacion
                                 };
 
