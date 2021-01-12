@@ -62,8 +62,9 @@ module.exports = {
                                 callBack(error);
                             } else {
                                 pool.query( // genero registro historico
-                                    "insert into account_movements(type_movement, from_user, to_user, ammount) values (?,?,?,?)",
-                                    ["Transferencia", data.my_id, data.id_user_to_transfer, data.ammount],
+                                    "insert into account_movements(type_movement, from_user, to_user, ammount, ammount_before, ammount_after) values"+
+                                    "(?,?,?,?, select ammount + ? from account where id_user = ?, select ammount + ? from account where id_user = ?)",
+                                    ["Transferencia", data.my_id, data.id_user_to_transfer, data.ammount, data.ammount, data.my_id, data.my_id],
                                     (error, results, fields) => {
                                         if (error) {
                                             callBack(error);
