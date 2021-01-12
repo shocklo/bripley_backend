@@ -151,7 +151,7 @@ module.exports = {
                                                             text:''
                                                         };
                         
-                                                        /*transporter.sendMail(mailOptionsFrom, function (error, info) {
+                                                        transporter.sendMail(mailOptionsFrom, function (error, info) {
                                                             if (error) {
                                                                 console.log(error);
                                                             } else {
@@ -165,7 +165,7 @@ module.exports = {
                                                             } else {
                                                                 console.log('Email sent: ' + info.response);
                                                             }
-                                                        });*/
+                                                        });
                         
                         
                         
