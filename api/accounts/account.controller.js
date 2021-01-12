@@ -152,5 +152,24 @@ module.exports = {
         });
     },
 
+    myAccount: (req, res) => {
+        let body = req.body;
+        body.my_id = req.decoded.result.id;
+        getMyAccount(body, (err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    success: 0,
+                    message: "Database connection errror"
+                });
+            }              
+            return res.status(200).json({
+                success: 1,
+                data: results                   
+            });
+
+            
+        });
+    },
+
 
 }
