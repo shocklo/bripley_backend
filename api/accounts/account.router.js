@@ -6,7 +6,7 @@ router.get("/", checkToken, getTransfers);
 router.post("/transfer", checkToken, doTransfer);
 router.post("/doDeposit", checkToken, doDeposit);
 router.post("/doWithdraw", checkToken, doWithdraw);
-router.post("/myAccount", checkToken, myAccount);
+router.get("/myAccount", checkToken, myAccount);
 
 
 module.exports = router;
