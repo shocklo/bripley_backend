@@ -99,19 +99,23 @@ module.exports = {
                                 to_user_email = results[0].email;
                                 ammount_before_to = results[0].ammount; 
                                 pool.query( // descuento mi dinero
-                                    "update account set ammount = ammount - ? where id_user = ?",
-                                    [data.my_id, data.ammount],
+                                    "update account set ammount = (ammount - ?) where id_user = ?",
+                                    [data.ammount, data.my_id],
                                     (error, results, fields) => {
                                         if (error) {
                                             callBack(error);
                                         } else {
+                                            console.log("RESTO",data.ammount);
+                                            console.log("A",data.my_id);
                                             pool.query( // aumento dinero en cuenta destino
-                                                "update account set ammount = ammount + ? where id_user = ?",
-                                                [data.id_user_to_transfer, data.ammount],
+                                                "update account set ammount = (ammount + ?) where id_user = ?",
+                                                [data.ammount, data.id_user_to_transfer],
                                                 (error, results, fields) => {
                                                     if (error) {
                                                         callBack(error);
                                                     } else {
+                                                        console.log("AUMENTO",data.ammount);
+                                                        console.log("A",data.id_user_to_transfer);
                                                         //Envio correo notificando al que recibe                                 
                                                         var mailOptionsFrom = {
                                                             from: process.env.DB_HOST,
@@ -147,7 +151,7 @@ module.exports = {
                                                             text:''
                                                         };
                         
-                                                        transporter.sendMail(mailOptionsFrom, function (error, info) {
+                                                        /*transporter.sendMail(mailOptionsFrom, function (error, info) {
                                                             if (error) {
                                                                 console.log(error);
                                                             } else {
@@ -161,7 +165,7 @@ module.exports = {
                                                             } else {
                                                                 console.log('Email sent: ' + info.response);
                                                             }
-                                                        });
+                                                        });*/
                         
                         
                         
