@@ -22,7 +22,7 @@ module.exports = {
             " am.ammount_before_to, am.ammount_after_to "+
             " from account_movements am  "+
             "     left join users uf on am.from_user = uf.id  "+
-            "     left join users ut on am.to_user = ut.id where am.type_movement = 'Transferencia' and am.to_user = ? ",
+            "     left join users ut on am.to_user = ut.id where am.type_movement = 'Transferencia' and am.to_user = ?  order by id asc ",
         /*"select am.id, am.type_movement, CONCAT(uf.names, ' ', uf.last_names) as from_user, CONCAT(ut.names, ' ', ut.last_names) as to_user, am.ammount, am.datetime  from account_movements am "+ 
         "left join users uf on am.from_user = uf.id "+
         "left join users ut on am.to_user = ut.id where am.from_user = ? or am.to_user = ?"*/
