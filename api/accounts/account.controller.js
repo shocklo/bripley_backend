@@ -155,7 +155,7 @@ module.exports = {
     myAccount: (req, res) => {
         let body = req.body;
         body.my_id = req.decoded.result.id;
-        getMyAccount(body, (err, results) => {
+        getMyAccount(body.my_id, (err, results) => {
             if (err) {
                 return res.status(500).json({
                     success: 0,
